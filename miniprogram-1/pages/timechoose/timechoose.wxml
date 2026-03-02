@@ -1,0 +1,39 @@
+<view style="margin-top: 20px;display: flex;">
+  <radio-group bindchange="statusChange" style="width: 220px;">
+    <label class="radio-item">
+      <radio value="0" checked="{{status === 0}}" /> 空闲
+    </label>
+    <label class="radio-item">
+      <radio value="1" checked="{{status === 1}}" /> 忙碌
+    </label>
+  </radio-group>
+  <view style="width: 140px;">
+    会议号：{{password}}
+  </view>
+</view>
+
+<view class="container">
+  <view class="table">
+    <view class="table-row">
+      <view class="table-cell"></view>
+      <view class="table-cell">周一</view>
+      <view class="table-cell">周二</view>
+      <view class="table-cell">周三</view>
+      <view class="table-cell">周四</view>
+      <view class="table-cell">周五</view>
+      <view class="table-cell">周六</view>
+      <view class="table-cell">周日</view>
+    </view>
+    <block wx:for="{{rows}}" wx:key="index" wx:for-index="rowIndex">
+      <view class="table-row">
+        <view class="table-cell">{{item.section}}</view>
+        <block wx:for="{{item.cells}}" wx:key="index" wx:for-index="cellIndex">
+          <view class="table-cell" bindtap="handleTap" data-row-index="{{rowIndex}}" data-cell-index="{{cellIndex}}" style="background-color: {{item.backgroundColor}};">
+            <!-- 移除数字显示 -->
+          </view>
+        </block>
+      </view>
+    </block>
+    <button class="button" bindtap="GoCheck">确认</button>
+  </view>
+</view>

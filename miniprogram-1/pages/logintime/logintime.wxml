@@ -1,0 +1,17 @@
+<!--pages/logintime/logintime.wxml-->
+<view class="input-container">
+  <input 
+    class="centered-input"
+    maxlength="8"
+    placeholder="请输入8位数字"
+    type="number"
+    bindinput="onInputChange" 
+    value="{{inputValue}}"  
+  />
+</view>
+
+<view class="button-1">
+  <button type="primary" bindtap="goTimeChoose">确认</button>
+  <button type="primary" bindtap="checkTimeChoose"  style="margin-top: 20rpx;">查询</button>
+  <button type="primary" bindtap="addTimeChoose"  style="margin-top: 20rpx;">新增</button>
+</view>

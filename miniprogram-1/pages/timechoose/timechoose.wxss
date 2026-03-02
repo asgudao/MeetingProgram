@@ -1,0 +1,33 @@
+.container {
+  padding: 20px;
+  display: flex;
+  gap:1px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table-row {
+  display: flex;
+}
+
+.table-cell {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+.button{
+  margin-top: 20px;
+  background-color: #e1e1e1;
+}
+
+.radio-item{
+  margin-left: 20px;
+}

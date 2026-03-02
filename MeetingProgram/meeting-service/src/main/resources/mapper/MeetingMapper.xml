@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tjetc.dao.MeetingMapper">
+    <sql id="columnName">
+        id,
+        password,
+        counts
+    </sql>
+    <resultMap id="baseMap" type="com.tjetc.entity.Meeting">
+        <id column="id" property="id"></id>
+        <result column="password" property="password"></result>
+        <!-- 为counts字段指定JSON类型处理器 -->
+        <result column="counts" property="counts"
+                typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+    </resultMap>
+
+    <select id="selectByPassword" resultMap="baseMap">
+        select <include refid="columnName"/>
+        from `use`
+        where password=#{password}
+    </select>
+
+    <!-- 新增插入语句，显式指定类型处理器 -->
+    <insert id="insert" parameterType="com.tjetc.entity.Meeting">
+        insert into `use` (password, counts)
+        values (#{password}, #{counts,typeHandler=com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler})
+    </insert>
+
+    <!-- 新增更新语句，显式指定类型处理器 -->
+    <update id="updateById" parameterType="com.tjetc.entity.Meeting">
+        update `use`
+        set password = #{password},
+            counts = #{counts,typeHandler=com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler}
+        where id = #{id}
+    </update>
+
+    <select id="selectById" resultMap="baseMap">
+        select <include refid="columnName"/>
+        from `use`
+        where id=#{id}
+    </select>
+
+    <delete id="deleteById">
+        delete from `use`
+        where id = #{id}
+    </delete>
+</mapper>

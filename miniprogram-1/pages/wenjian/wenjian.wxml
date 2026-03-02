@@ -1,0 +1,22 @@
+<!--轮播图-->
+<!-- indicator-dots-->
+<swiper class="swiper-container" indicator-dots="true" autoplay="true">
+<!--第一项-->
+<swiper-item>
+<view class="item">A</view>
+</swiper-item>
+<!--第二项-->
+<swiper-item>
+<view class="item">B</view>
+</swiper-item>
+<!--第三项-->
+<swiper-item>
+<view class="item">B</view>
+</swiper-item>
+</swiper>
+<view class="container1" bind:tap="goLoginTime" >
+<text class="text">时间选定</text>
+</view>
+<view class="container1">
+<text class="text">其余功能正在开发ing……</text>
+</view>
